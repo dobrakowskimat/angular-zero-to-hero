@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { SuperService } from 'src/app/services/super.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { SuperService } from 'src/app/services/super.service';
   templateUrl: './input-test.component.html',
   styleUrls: ['./input-test.component.scss']
 })
-export class InputTestComponent implements OnInit {
+export class InputTestComponent implements OnInit, OnDestroy {
   @Input() myTitle: string;
   @Output() clickEvent: EventEmitter<string> = new EventEmitter<string>();
 
@@ -18,6 +18,10 @@ export class InputTestComponent implements OnInit {
     this.superService.subject.subscribe((counter) => {
       console.log("Counter: " + counter);
     });
+  }
+
+  ngOnDestroy(): void {
+    this.superService.subject.unsubscribe();
   }
 
   clicked(): void {

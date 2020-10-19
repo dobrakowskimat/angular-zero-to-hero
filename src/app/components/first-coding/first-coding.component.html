@@ -1,0 +1,10 @@
+<p>my-first-component works!</p>
+<button (click)="warnUser()">click me</button>
+<div *ngIf="showWarning">WOLOLOLOLO</div>
+
+<input type="text" [(ngModel)]="inputValue" style="display: block;">
+<p>Hello {{inputValue}}!</p>
+
+<p>{{ today | date:'dd/MM/yyyy' }}</p>
+<p>{{ deci1 | number: '1.2-2' }}</p>
+<p>{{ deci2 | number: '1.2-2' }}</p>

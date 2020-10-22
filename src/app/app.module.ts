@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { InputTestComponent } from './components/input-test/input-test.component';
 import { FirstCodingComponent } from './components/first-coding/first-coding.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FirstCodingComponent } from './components/first-coding/first-coding.com
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

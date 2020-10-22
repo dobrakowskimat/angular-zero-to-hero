@@ -8,3 +8,5 @@
 <p>{{ today | date:'dd/MM/yyyy' }}</p>
 <p>{{ deci1 | number: '1.2-2' }}</p>
 <p>{{ deci2 | number: '1.2-2' }}</p>
+
+<p *ngFor="let movie of movies$ | async">{{movie.title}}</p>

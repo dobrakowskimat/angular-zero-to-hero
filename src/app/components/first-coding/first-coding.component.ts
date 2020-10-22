@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { MoviesService } from 'src/app/services/movies.service';
 
 @Component({
   selector: 'app-first-coding',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FirstCodingComponent implements OnInit {
 
-  constructor() { }
+  constructor(private moviesService: MoviesService) { }
 
   inputValue: string = 'initial string';
   today: Date = new Date();
@@ -15,8 +17,9 @@ export class FirstCodingComponent implements OnInit {
 
   deci1: number = 123.234234
   deci2: number = 0.1;
-
+  movies$: Observable<Movie[]>
   ngOnInit(): void {
+    this.movies$ = this.moviesService.getMovies();
   }
 
   warnUser(): void {
